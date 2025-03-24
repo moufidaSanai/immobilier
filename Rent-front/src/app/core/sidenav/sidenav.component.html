@@ -1,0 +1,342 @@
+<aside
+  class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+  aria-label="Sidenav"
+  id="drawer-navigation"
+>
+  <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+    <!-- Search Bar -->
+    <form action="#" method="GET" class="md:hidden mb-2">
+      <label for="sidebar-search" class="sr-only">Tableau de bord</label>
+      <div class="relative">
+        <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+          <svg
+            class="w-5 h-5 text-gray-500 dark:text-gray-400"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+            ></path>
+          </svg>
+        </div>
+        <input
+          type="text"
+          name="search"
+          id="sidebar-search"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+          placeholder="Search"
+        />
+      </div>
+    </form>
+
+    <!-- Menu Items -->
+    <ul class="space-y-2">
+      <!-- Dashboard -->
+      <li>
+        <a
+        routerLink="dashboard"
+          class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <svg
+            aria-hidden="true"
+            class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+            <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+          </svg>
+          <span class="ml-3">Tableau de bord</span>
+        </a>
+      </li>
+
+      <!-- Espace utilisateurs -->
+      <li>
+        <a
+          routerLink="user"
+          class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <svg
+            class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12 20a8 8 0 110-16 8 8 0 010 16z"></path>
+          </svg>
+          <span class="ml-3">Administration</span>
+        </a>
+      </li>
+     <!-- Gestion des utilisateurs Section -->
+<li>
+  <button
+    type="button"
+    class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+    aria-controls="dropdown-utilisateurs"
+    data-collapse-toggle="dropdown-utilisateurs"
+  >
+    <svg
+      aria-hidden="true"
+      class="flex-shrink-0 w-6 h-6 text-gray-400 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+    <span class="flex-1 ml-3 text-left whitespace-nowrap">Gestion des utilisateurs</span>
+    <svg
+      aria-hidden="true"
+      class="w-6 h-6"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+  <ul id="dropdown-utilisateurs" class="hidden py-2 space-y-2">
+    <!-- Liste des locataires -->
+    <li>
+      <a
+        routerLink="locataire"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+        <!-- Icône Liste des locataires -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des locataires</span>
+      </a>
+    </li>
+    <!-- Liste des bailleurs -->
+    <li>
+      <a
+        routerLink="lessor"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+        <!-- Icône Liste des bailleurs -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des bailleurs</span>
+      </a>
+    </li>
+  </ul>
+</li>
+
+      
+
+<!-- Immobilier Section -->
+<li>
+  <button
+    type="button"
+    class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+    aria-controls="dropdown-immobilier"
+    data-collapse-toggle="dropdown-immobilier"
+  >
+    <svg
+      class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+      ></path>
+    </svg>
+    <span class="flex-1 ml-3 text-left whitespace-nowrap">Gestion des annonces</span>
+    <svg
+      class="w-6 h-6"
+      fill="currentColor"
+      viewBox="0 0 20 20"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </button>
+  <ul id="dropdown-immobilier" class="hidden py-2 space-y-2">
+    <!-- Liste des Immobiliers -->
+    <li>
+      <a
+        routerLink="house"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      >
+        <!-- Icône Liste des Immobiliers -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 3a1 1 0 011 1v4h4a1 1 0 011 1v6a1 1 0 01-1 1h-3v3a1 1 0 01-1 1H8a1 1 0 01-1-1v-3H4a1 1 0 01-1-1V8a1 1 0 011-1h4V4a1 1 0 011-1h3z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des Immobiliers</span>
+      </a>
+    </li>
+
+    <!-- Liste des Annonces -->
+    <li>
+      <a
+        routerLink="offre"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      >
+        <!-- Icône Liste des Annonces -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 3a1 1 0 011 1v4h4a1 1 0 011 1v6a1 1 0 01-1 1h-3v3a1 1 0 01-1 1H8a1 1 0 01-1-1v-3H4a1 1 0 01-1-1V8a1 1 0 011-1h4V4a1 1 0 011-1h3z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des Annonces</span>
+      </a>
+    </li>
+
+    <!-- Liste des Équipements -->
+    <li>
+      <a
+        routerLink="equipement"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      >
+        <!-- Icône Liste des équipements -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M10 3a1 1 0 011 1v3h3a1 1 0 011 1v3a1 1 0 01-1 1h-3v3a1 1 0 01-1 1H7a1 1 0 01-1-1v-3H3a1 1 0 01-1-1V7a1 1 0 011-1h3V4a1 1 0 011-1h3z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des Équipements</span>
+      </a>
+    </li>
+
+    <!-- Liste des Caractéristiques -->
+    <li>
+      <a
+        routerLink="caracteristique"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      >
+        <!-- Icône Liste des caractéristiques -->
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M5 3h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1zM4 4a1 1 0 011-1h10a1 1 0 011 1v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"
+          ></path>
+        </svg>
+        <span class="ml-3">Liste des Caractéristiques</span>
+      </a>
+    </li>
+  </ul>
+</li>
+
+    <!-- Suivi des locations (paiement, réservation, etc.) -->
+      <li>
+        <a
+          routerLink="location-tracking"
+          class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+        >
+          <svg
+            class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M4 3h12a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1zm1 2v10h10V5H5zm2 2h2v2H7V7zm4 0h2v2h-2V7zm-4 4h2v2H7v-2zm4 0h2v2h-2v-2z"></path>
+          </svg>
+          <span class="ml-3">Suivi des locations</span>
+        </a>
+      </li>
+
+    <!-- Notifications -->
+    <li>
+      <a
+        routerLink="notifications"
+        class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+      >
+        <svg
+          class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M10 2a6 6 0 00-6 6v4l-2 2h16l-2-2V8a6 6 0 00-6-6zm0 14a2 2 0 002-2H8a2 2 0 002 2z"></path>
+        </svg>
+        <span class="ml-3">Notifications</span>
+      </a>
+    </li>
+    
+    </ul>
+
+     
+
+      <!-- Logout Label Below Profile -->
+      <div class="absolute bottom-0 left-0 w-full p-4 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-center justify-between">
+      <div class="mt-4 text-center">
+        <button 
+        (click)="logout()" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+          aria-label="Logout"
+        >
+          <span class="mr-20">Déconnexion</span> <!-- Added margin to create space -->
+          <svg
+            aria-hidden="true"
+            class="w-6 h-6"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+     </div>
+</aside>

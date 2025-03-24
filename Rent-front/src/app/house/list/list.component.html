@@ -1,0 +1,93 @@
+<div class="container mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-6">Liste des Immobiliers </h1>
+
+  <!-- Add, Delete, Edit Buttons -->
+  <div class="flex flex-col space-y-3 md:flex-row md:items-center md:space-y-0 md:space-x-3 mb-4">
+    <button routerLink="/house/add" type="button" class="flex items-center gap-2 text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5">
+      Ajouter 
+    </button>
+    <button (click)="actionOpen()" type="button" class="flex items-center gap-2 text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5">
+      Supprimer
+    </button>
+    <button (click)="editRouter()" type="button" [disabled]="isButtonDisabled" class="flex items-center gap-2 text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5">
+      Modifier
+    </button>
+  </div>
+
+  <!-- Table of Houses -->
+  <table class="min-w-full bg-white border border-gray-300">
+    <thead>
+      <tr>
+        <th class="py-2 px-4 border-b">
+          <div class="flex items-center">
+            <input type="checkbox" [(ngModel)]="selectAll" (change)="toggleSelectAll()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded">
+          </div>
+        </th>
+        <th class="py-2 px-4 border-b">Image</th>
+        <th class="py-2 px-4 border-b">Titre</th>
+        <th class="py-2 px-4 border-b">Description</th>
+        <th class="py-2 px-4 border-b">Bailleur publié</th>
+        <th class="py-2 px-4 border-b">Type</th>
+        <th class="py-2 px-4 border-b">Prix</th>
+        <th class="py-2 px-4 border-b">Action</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let house of houses" class="hover:bg-gray-50">
+        <td class="py-2 px-4 border-b">
+          <div class="flex items-center">
+            <input type="checkbox" [(ngModel)]="house.selected" (change)="onCheckboxChange()" class="w-4 h-4 bg-gray-100 border-gray-300 rounded">
+          </div>
+        </td>
+        <td class="py-2 px-4 border-b">
+          <img *ngIf="house.pictures && house.pictures[0]" 
+               [src]="house.pictures[0].url" 
+               alt="Image" 
+               class="w-24 h-24 object-cover rounded-full border-2 border-gray-300" />
+          <span *ngIf="!house.pictures || !house.pictures[0]">Aucune image disponible</span>
+        </td>
+        
+        
+        <td class="py-2 px-4 border-b">{{ house.title }}</td>
+        <td class="py-2 px-4 border-b">{{ house.description }}</td>
+        <td class="py-2 px-4 border-b">
+          <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-green-900 dark:text-green-300" *ngIf="house.userId!=null && house.lessor==null"> 
+            {{ house.userId.firstName }}  {{ house.userId.lastName }}</span>
+          <span *ngIf="house.userId==null && house.lessorId!=null"> 
+            <span >
+              {{ house.lessorId.firstName }} {{house.lessorId.lastName}}
+            </span>
+
+           </span>
+          <span *ngIf="house.userId==null && house.lessorId==null">
+            <span class="bg-gray-100 text-gray-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-gray-700 dark:text-gray-300">Disponible</span>
+
+
+          </span>
+
+        </td>
+
+        <td class="py-2 px-4 border-b">{{ house.type }}</td>
+        <td class="py-2 px-4 border-b">{{ house.priceTTC }} TND</td>
+        <td class="py-2 px-4 border-b">
+          <button
+            (click)="goToAddOffer(house.id)"
+            type="button"
+            class="text-black-500 hover:text-white border border-green-500 hover:bg-green-600 px-2 py-1 rounded"
+          >
+            Ajouter Offre
+          </button>
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Delete House Component -->
+  <app-delete *ngIf="close"
+              [selectedList]="selectedhouses"
+              (close)="actionClose()"
+              (save)="actionSave()">
+  </app-delete>
+</div>

@@ -1,0 +1,22 @@
+<nav class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+  <div class="flex flex-wrap justify-between items-center">
+    <!-- Logo et nom à gauche -->
+    <div class="flex justify-start items-center">
+      <img src="assets/logo.jpg" class="mr-9 h-12" />
+      <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">RentEazy</span>
+    </div>
+
+    <!-- Section Email + Icône Utilisateur à droite -->
+    <div class="flex items-center lg:order-2">
+      <!-- Icône utilisateur en SVG -->
+      <svg class="w-8 h-8 text-gray-700 dark:text-white mr-2" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2a6 6 0 1 1 0 12 6 6 0 0 1 0-12zm0 14c-4.42 0-8 1.79-8 4v2h16v-2c0-2.21-3.58-4-8-4z"/>
+      </svg>
+
+      <!-- Email de l'utilisateur -->
+      <span class="text-base font-medium text-gray-900 dark:text-white">
+{{email}}      
+</span>
+    </div>
+  </div>
+</nav>
